@@ -529,6 +529,18 @@ export default function YogaAIPage() {
         </div>
       </header>
 
+      <div className="relative mx-auto mt-5 h-40 w-[calc(100%-2rem)] max-w-7xl overflow-hidden rounded-3xl bg-[#173F35] sm:mt-6 sm:h-48 sm:w-[calc(100%-3rem)]">
+        <img
+          src="/images/dashboard-cosmic-meditation.png"
+          alt="Meditation beneath a cosmic sky with glowing chakra energy"
+          className="absolute inset-y-0 right-0 h-full w-auto max-w-[58%] object-contain object-right"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#173F35] via-[#173F35]/85 to-transparent" />
+        <p className="relative z-10 flex h-full max-w-xs items-center p-5 font-serif text-2xl font-semibold leading-tight text-[#F8F6EF] sm:p-8 sm:text-3xl">
+          Find your balance, one mindful moment at a time.
+        </p>
+      </div>
+
       {/* Main Studio Grid */}
       <main className="flex-1 max-w-7xl w-full mx-auto p-4 sm:p-6 grid lg:grid-cols-12 gap-6">
         {/* LEFT PANEL: LIVE WEBCAM + SKELETON OVERLAY */}

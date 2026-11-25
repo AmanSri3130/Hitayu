@@ -82,6 +82,7 @@ export default function DashboardPage() {
 
   return (
     <DashboardLayout
+      showWellnessImage={false}
       title={`Namaste, ${user?.name?.split(' ')[0] || 'Friend'}.`}
       subtitle={`${getGreeting()} • शुभं भवतु — Your journey toward mindful wellness starts here.`}
       actions={
@@ -171,8 +172,8 @@ export default function DashboardPage() {
               {/* Right Botanical Visual */}
               <div className="lg:col-span-6 relative h-72 lg:h-full min-h-[340px] overflow-hidden">
                 <img
-                  src="/images/dashboard-nature-heals.jpg"
-                  alt="Nature Heals Ayurvedic Botanicals"
+                  src="/images/dashboard-cosmic-meditation.png"
+                  alt="Meditation beneath a cosmic sky with glowing chakra energy"
                   className="w-full h-full object-cover object-center"
                 />
                 <div className="absolute inset-0 bg-gradient-to-r from-[#F6F5EF] via-transparent to-transparent lg:w-24" />

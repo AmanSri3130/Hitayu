@@ -2,7 +2,13 @@ import React, { useState } from 'react';
 import { Menu, Leaf } from 'lucide-react';
 import Sidebar from './Sidebar';
 
-export default function DashboardLayout({ children, title, subtitle, actions }) {
+export default function DashboardLayout({
+  children,
+  title,
+  subtitle,
+  actions,
+  showWellnessImage = true,
+}) {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
@@ -27,6 +33,22 @@ export default function DashboardLayout({ children, title, subtitle, actions }) 
 
         {/* Main Content */}
         <main className="flex-1 p-5 sm:p-8 lg:p-10 max-w-7xl w-full mx-auto">
+          {showWellnessImage && (
+            <div className="relative mb-8 min-h-40 sm:min-h-48 overflow-hidden rounded-3xl bg-[#102E28]">
+              <img
+                src="/images/dashboard-cosmic-meditation.png"
+                alt="Meditation beneath a cosmic sky with glowing chakra energy"
+                className="absolute inset-y-0 right-0 h-full w-auto max-w-[58%] object-contain object-right"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-[#102E28] via-[#102E28]/85 to-transparent" />
+              <div className="relative z-10 flex min-h-40 sm:min-h-48 items-center p-5 sm:p-8">
+                <p className="max-w-xs font-serif text-2xl sm:text-3xl font-semibold leading-tight text-[#F8F6EF]">
+                  Find your balance, one mindful moment at a time.
+                </p>
+              </div>
+            </div>
+          )}
+
           {(title || subtitle || actions) && (
             <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
               <div>
