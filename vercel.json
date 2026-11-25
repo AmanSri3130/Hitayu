@@ -3,22 +3,25 @@
   "services": {
     "client": {
       "root": "client",
-      "framework": "vite"
+      "framework": "vite",
+      "bindings": [
+        {
+          "type": "service",
+          "service": "server",
+          "format": "url",
+          "env": "VITE_API_URL"
+        }
+      ]
     },
     "server": {
       "root": "server",
-      "framework": "express"
+      "framework": "express",
+      "buildCommand": "npm install"
     }
   },
   "rewrites": [
     {
       "source": "/api/(.*)",
-      "destination": {
-        "service": "server"
-      }
-    },
-    {
-      "source": "/poses/(.*)",
       "destination": {
         "service": "server"
       }
