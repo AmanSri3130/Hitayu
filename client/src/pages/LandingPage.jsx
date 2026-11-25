@@ -114,8 +114,9 @@ export default function LandingPage() {
               Three Dimensions. One Holistic Experience.
             </h2>
             <p className="text-[#78847C] mt-3">
-              “स्वस्थस्य स्वास्थ्य रक्षणम्” — Preserving the vitality of the healthy through
-              understanding, personalization, and daily practice.
+              We bring traditional Ayurvedic ideas together with practical digital tools: reflect on
+              your habits, learn at your own pace, and build a consistent movement practice. These
+              features support wellness education; they do not diagnose or treat health conditions.
             </p>
           </motion.div>
 
@@ -131,9 +132,9 @@ export default function LandingPage() {
                 </h3>
                 <p className="text-xs font-medium text-[#C6A56B] mt-0.5">प्रकृति परीक्षण</p>
                 <p className="text-sm text-[#78847C] mt-3 leading-relaxed">
-                  Explore your constitutional tendencies across Vata, Pitta, and Kapha through a
-                  structured 10-question assessment with transparent scoring and personalized
-                  lifestyle takeaways.
+                  Answer 10 questions about your self-reported tendencies across Vata, Pitta, and
+                  Kapha. Use the indicative profile and lifestyle suggestions as a starting point
+                  for reflection—not as a clinical assessment.
                 </p>
               </div>
               <Link
@@ -156,8 +157,9 @@ export default function LandingPage() {
                 </h3>
                 <p className="text-xs font-medium text-[#C6A56B] mt-0.5">आयुः संवाद</p>
                 <p className="text-sm text-[#78847C] mt-3 leading-relaxed">
-                  Converse with an Ayurvedic educational companion powered by Groq LLM and grounded
-                  in our curated MongoDB classical texts, tailored to your saved Prakriti profile.
+                  Ask about Ayurvedic concepts and everyday routines. Ayu AI draws on curated
+                  reference material and can use your saved Prakriti profile for context. Its
+                  generated answers are educational and may need verification.
                 </p>
               </div>
               <Link
@@ -183,9 +185,9 @@ export default function LandingPage() {
                 </h3>
                 <p className="text-xs font-medium text-[#C6A56B] mt-0.5">योगः कर्मसु कौशलम्</p>
                 <p className="text-sm text-[#E8F0E9]/85 mt-3 leading-relaxed">
-                  Practice directly in your browser using MediaPipe 33-point skeletal tracking and
-                  real-time joint angle evaluation. Zero video uploaded—100% private local
-                  processing.
+                  Practice supported poses with live alignment cues. Pose landmarks are detected
+                  from your camera stream in the browser; for supported poses, landmark features
+                  are sent to the server for classification, not the video itself.
                 </p>
               </div>
               <Link
@@ -197,6 +199,10 @@ export default function LandingPage() {
               </Link>
             </motion.div>
           </div>
+          <p className="mt-8 text-center text-xs leading-relaxed text-[#78847C]">
+            HitAyu is for general wellness education and practice. It is not a substitute for
+            professional medical advice, diagnosis, or treatment.
+          </p>
         </div>
       </section>
 

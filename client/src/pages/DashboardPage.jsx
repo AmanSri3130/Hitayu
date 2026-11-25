@@ -28,6 +28,7 @@ export default function DashboardPage() {
   const [habits, setHabits] = useState([]);
   const [sessions, setSessions] = useState([]);
   const [knowledge, setKnowledge] = useState([]);
+  const [yogaPoses, setYogaPoses] = useState([]);
   const [loading, setLoading] = useState(true);
 
   const getGreeting = () => {
@@ -50,6 +51,17 @@ export default function DashboardPage() {
         setHabits(habitsRes.data.habits || []);
         setSessions(sessionsRes.data.sessions || []);
         setKnowledge((knowledgeRes.data.knowledge || []).slice(0, 3));
+
+        try {
+          const posesRes = await api.get('/yoga/poses');
+          setYogaPoses(
+            (posesRes.data.supportedPoses || []).filter(
+              (pose) => pose.classifierClass !== null && pose.image
+            )
+          );
+        } catch (err) {
+          console.error('Dashboard yoga poses fetch error:', err.message);
+        }
       } catch (err) {
         console.error('Dashboard fetch error:', err.message);
       } finally {
@@ -239,6 +251,75 @@ export default function DashboardPage() {
               accentColor="#D99A50"
             />
           </div>
+
+          {/* Featured Yoga Poses */}
+          <section aria-labelledby="featured-yoga-poses" className="space-y-5">
+            <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3">
+              <div>
+                <span className="text-xs font-semibold uppercase tracking-[0.18em] text-[#C6A56B]">
+                  योग अभ्यास
+                </span>
+                <h2
+                  id="featured-yoga-poses"
+                  className="font-serif text-2xl font-bold text-[#173F35] mt-1"
+                >
+                  Explore Yoga Poses
+                </h2>
+                <p className="text-sm text-[#78847C] mt-1">
+                  Learn the key alignment cues before you begin your practice.
+                </p>
+              </div>
+              <Link
+                to="/yoga-ai"
+                className="inline-flex items-center gap-1 text-sm font-semibold text-[#173F35] hover:gap-2 transition-all"
+              >
+                Open Yoga Studio <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+
+            {yogaPoses.length > 0 && (
+              <div className="grid sm:grid-cols-2 xl:grid-cols-4 gap-5">
+                {yogaPoses.map((pose) => (
+                  <article
+                    key={pose.id}
+                    className="group overflow-hidden rounded-2xl border border-[#E4E9E2] bg-white shadow-soft transition-shadow hover:shadow-card"
+                  >
+                    <div className="aspect-[4/3] overflow-hidden bg-[#F8F6EF]">
+                      <img
+                        src={pose.image}
+                        alt={`${pose.name} (${pose.sanskritName})`}
+                        loading="lazy"
+                        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                    </div>
+                    <div className="p-5">
+                      <div className="flex items-center justify-between gap-2">
+                        <span className="rounded-full bg-[#E8F0E9] px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-[#173F35]">
+                          {pose.difficulty}
+                        </span>
+                        <span className="text-xs text-[#78847C]">
+                          {pose.targetHoldSeconds}s hold
+                        </span>
+                      </div>
+                      <h3 className="mt-3 font-serif text-lg font-bold text-[#173F35]">
+                        {pose.name}
+                      </h3>
+                      <p className="text-xs italic text-[#A77D3F]">{pose.sanskritName}</p>
+                      <p className="mt-3 text-sm leading-relaxed text-[#59665F]">
+                        {pose.instructions?.[0]}
+                      </p>
+                      {pose.safety && (
+                        <p className="mt-3 border-t border-[#E4E9E2] pt-3 text-xs leading-relaxed text-[#78847C]">
+                          <span className="font-semibold text-[#173F35]">Alignment note: </span>
+                          {pose.safety}
+                        </p>
+                      )}
+                    </div>
+                  </article>
+                ))}
+              </div>
+            )}
+          </section>
 
           {/* Main Grid */}
           <div className="grid lg:grid-cols-12 gap-6">

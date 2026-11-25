@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import { AuthProvider } from './context/AuthContext';
 import { ToastProvider } from './context/ToastContext';
 import ProtectedRoute from './components/ProtectedRoute';
+import { MandalaWatermark } from './components/IndianMotifs';
 
 import LandingPage from './pages/LandingPage';
 import LoginPage from './pages/LoginPage';
@@ -19,6 +20,13 @@ export default function App() {
     <AuthProvider>
       <ToastProvider>
         <Router>
+          <div
+            aria-hidden="true"
+            className="pointer-events-none fixed inset-0 z-20 overflow-hidden"
+          >
+            <MandalaWatermark className="absolute -left-24 -top-24 h-72 w-72 opacity-[0.035]" />
+            <MandalaWatermark className="absolute -bottom-32 -right-32 h-96 w-96 opacity-[0.035]" />
+          </div>
           <Routes>
             <Route path="/" element={<LandingPage />} />
             <Route path="/login" element={<LoginPage />} />

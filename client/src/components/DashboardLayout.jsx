@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Menu, Leaf } from 'lucide-react';
 import Sidebar from './Sidebar';
+import { SanskritDivider } from './IndianMotifs';
 
 export default function DashboardLayout({
   children,
@@ -50,19 +51,22 @@ export default function DashboardLayout({
           )}
 
           {(title || subtitle || actions) && (
-            <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
-              <div>
-                {title && (
-                  <h1 className="font-serif text-2xl sm:text-3xl font-bold text-[#173F35] tracking-tight">
-                    {title}
-                  </h1>
-                )}
-                {subtitle && (
-                  <p className="text-sm sm:text-base text-[#78847C] mt-1">{subtitle}</p>
-                )}
+            <>
+              <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6">
+                <div>
+                  {title && (
+                    <h1 className="font-serif text-2xl sm:text-3xl font-bold text-[#173F35] tracking-tight">
+                      {title}
+                    </h1>
+                  )}
+                  {subtitle && (
+                    <p className="text-sm sm:text-base text-[#78847C] mt-1">{subtitle}</p>
+                  )}
+                </div>
+                {actions && <div className="flex items-center gap-3 shrink-0">{actions}</div>}
               </div>
-              {actions && <div className="flex items-center gap-3 shrink-0">{actions}</div>}
-            </div>
+              <SanskritDivider label="सर्वे भवन्तु सुखिनः" className="mb-8" />
+            </>
           )}
 
           {children}

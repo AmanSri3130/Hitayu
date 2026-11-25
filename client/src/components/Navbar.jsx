@@ -107,6 +107,10 @@ export default function Navbar() {
           {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
       </div>
+      <div
+        aria-hidden="true"
+        className="h-px bg-gradient-to-r from-transparent via-[#C6A56B]/70 to-transparent"
+      />
 
       {/* Mobile Dropdown */}
       {mobileOpen && (
