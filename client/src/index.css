@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background-color: #F8F6EF;
+    background-image: radial-gradient(circle at 20% 10%, rgba(198, 165, 107, 0.06) 0%, transparent 45%),
+      radial-gradient(circle at 85% 80%, rgba(23, 63, 53, 0.04) 0%, transparent 50%);
+    color: #26352F;
+  }
+
+  h1, h2, h3, .font-editorial {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+}
+
+@layer components {
+  .hitayu-card {
+    @apply bg-white rounded-2xl border border-[#E4E9E2] shadow-soft transition-all duration-300;
+  }
+
+  .hitayu-card-royal {
+    @apply bg-white rounded-3xl border border-[#C6A56B]/30 shadow-card relative overflow-hidden transition-all duration-300;
+  }
+
+  .hitayu-btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-[#173F35] text-[#F8F6EF] font-medium hover:bg-[#102E28] shadow-sm hover:shadow-md active:scale-[0.99] transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .hitayu-btn-gold {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-[#C6A56B] to-[#D4B475] text-[#102E28] font-semibold hover:brightness-105 shadow-sm active:scale-[0.99] transition-all duration-200;
+  }
+
+  .hitayu-btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl border border-[#173F35]/40 text-[#173F35] bg-white/60 font-medium hover:bg-[#E8F0E9] hover:border-[#173F35] active:scale-[0.99] transition-all duration-200 disabled:opacity-50;
+  }
+
+  .hitayu-input {
+    @apply w-full px-4 py-3 rounded-xl border border-[#E4E9E2] bg-white text-[#26352F] placeholder-[#78847C] focus:outline-none focus:ring-2 focus:ring-[#C6A56B]/30 focus:border-[#173F35] transition-all;
+  }
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 90s linear infinite;
+}
+
+/* Custom subtle scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F8F6EF;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #A8BDA8;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #244F42;
+}
